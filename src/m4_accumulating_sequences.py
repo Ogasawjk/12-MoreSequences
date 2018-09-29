@@ -345,7 +345,7 @@ def run_test_rectangles_from_circles():
     # ------------------------------------------------------------------
     # Test 2 is ALREADY DONE (here).
     # It runs in the same window as Test 1.
-    # ------------------------------------------------------------------
+    # -----------------------------------------------qqq-------------------
     circles = []
     center = rg.Point(50, 150)
     radius = 35
@@ -371,9 +371,7 @@ def run_test_rectangles_from_circles():
     window.continue_on_mouse_click(message, close_it=True)
 
 def rectangles_from_circles(circles):
-
-
-
+    rectangle = []
     my_circles = circles
     for k in range(len(my_circles)):
         circle = my_circles[k]
@@ -381,11 +379,9 @@ def rectangles_from_circles(circles):
         height = 2*circle.radius
         width = 2*circle.radius
         corner1 = rg.Point(center.x - 0.5*height, center.y - 0.5*width)
-        corner2 = rg.Point(center.x + 0.5*height, center.y - 0.5*width)
-        rectangle = rg.Rectangle(corner1, corner2)
-
-
-
+        corner2 = rg.Point(center.x + 0.5*height, center.y + 0.5*width)
+        rectangle = rectangle + [rg.Rectangle(corner1, corner2)]
+    return rectangle
     """
     See   rectangles_from_circles.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -402,7 +398,7 @@ def rectangles_from_circles(circles):
       :rtype: list of rg.Rectangles
     """
     # ------------------------------------------------------------------
-    # TODO: 10. Implement and test this function.
+    #DONE: 10. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
@@ -413,8 +409,6 @@ def rectangles_from_circles(circles):
     #            in this function, so DON'T draw anything in here!
     ####################################################################
     # ------------------------------------------------------------------
-
-
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
